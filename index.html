@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index, follow">
+  <meta name="description" content="Browse the PikoBuy spreadsheet for CAFANS shoes and clothing. Filter six listings, compare published USD estimates, and build a shortlist before ordering.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PikoBuy spreadsheet | CAFANS Product Directory">
+  <meta property="og:description" content="Compare CAFANS product listings and save a shortlist with estimated item prices.">
+  <meta name="theme-color" content="#15332b">
+  <title>PikoBuy spreadsheet | CAFANS Product Directory</title>
+  <!--
+    Filename: index.html
+    Search comparison: pikobuybestsheet.com emphasizes catalog breadth and QC
+    photos. chinagrails.com/en/spreadsheet/agent/pikobuy offers direct agent links,
+    QC photos, warehouse weights and a shipping calculator. This page focuses on
+    source-linked prices, a persistent shortlist, and a portable CSV with specific
+    size and inspection checks. The six listing URLs and displayed price estimates
+    were taken from the public CAFANS catalog at https://cafans.com/.
+    Indexing status: pending. Publish to a public URL, then add its absolute
+    self-referencing canonical URL and request indexing through the verified
+    Google Search Console property and Bing Webmaster Tools. This HTML alone
+    has not submitted a URL to either service.
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "PikoBuy spreadsheet | CAFANS Product Directory",
+    "inLanguage": "en",
+    "description": "An independent directory of six CAFANS listings with estimated US dollar prices and a buying checklist.",
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": 6,
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Leather Slides","url":"https://cafans.com/goods-158791.html"},
+        {"@type":"ListItem","position":2,"name":"Platform Slides","url":"https://cafans.com/goods-158790.html"},
+        {"@type":"ListItem","position":3,"name":"Sweatshirt","url":"https://cafans.com/goods-158792.html"},
+        {"@type":"ListItem","position":4,"name":"Unisex Embroidered Oversized T-Shirt","url":"https://cafans.com/goods-158200.html"},
+        {"@type":"ListItem","position":5,"name":"Jacket","url":"https://cafans.com/goods-158222.html"},
+        {"@type":"ListItem","position":6,"name":"Jacket - 0608260","url":"https://cafans.com/goods-158158.html"}
+      ]
+    }
+  }
+  </script>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f6f5ef;
+      --white: #fff;
+      --ink: #172d26;
+      --muted: #52665d;
+      --forest: #15332b;
+      --lime: #dcf49a;
+      --border: #d7e1d8;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 1rem/1.6 system-ui, sans-serif;
+    }
+    a { color: inherit; text-underline-offset: .2em; }
+    button, input, select { font: inherit; }
+    a:focus-visible, button:focus-visible, input:focus-visible,
+    select:focus-visible, summary:focus-visible {
+      outline: 3px solid #a05b18;
+      outline-offset: 4px;
+    }
+    .wrap { width: min(100% - 2rem, 68rem); margin-inline: auto; }
+    .topbar { display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding-block: 1rem; }
+    .topbar strong { letter-spacing: .12em; }
+    .topbar nav { display: flex; flex-wrap: wrap; gap: .4rem 1rem; justify-content: end; }
+    .hero {
+      padding: clamp(3rem, 9vw, 7rem) 1rem;
+      border-radius: 1.5rem;
+      text-align: center;
+      background: radial-gradient(ellipse at top right, #305c46, transparent 65%), var(--forest);
+      color: var(--white);
+    }
+    h1, h2 { line-height: 1.1; letter-spacing: -.045em; }
+    h1 { font-size: clamp(2.5rem, 8vw, 5.7rem); margin: 0; }
+    h2 { font-size: clamp(1.7rem, 4vw, 2.6rem); margin: 0 0 .65rem; }
+    .hero p { max-width: 39rem; margin: 1.25rem auto 1.7rem; color: #e3eee8; }
+    .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; }
+    .button {
+      display: inline-block;
+      padding: .65rem 1rem;
+      border: 1px solid transparent;
+      border-radius: .65rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .primary { background: var(--lime); color: var(--forest); }
+    .secondary { border-color: #a9bdb3; color: var(--white); }
+    .control { background: var(--white); border-color: var(--border); color: var(--ink); }
+    .control:hover { background: #eff5e9; }
+    button[aria-pressed="true"] { background: var(--lime); border-color: #82964c; }
+    button:disabled { opacity: .6; cursor: default; }
+    section { margin-block: clamp(2.5rem, 6vw, 4.5rem); }
+    .note { color: var(--muted); margin-top: 0; }
+    .filters { display: flex; align-items: end; flex-wrap: wrap; gap: .75rem; margin: 1.25rem 0 .5rem; }
+    .filters label { display: grid; gap: .3rem; font-weight: 700; }
+    .search { flex: 1 1 15rem; }
+    input, select { min-width: 0; padding: .6rem .75rem; border: 1px solid #859a8d; border-radius: .55rem; background: var(--white); color: var(--ink); }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: .85rem; background: var(--white); }
+    table { width: 100%; min-width: 36rem; border-collapse: collapse; }
+    th, td { text-align: left; padding: .75rem 1rem; }
+    thead { background: var(--forest); color: var(--white); }
+    tbody tr + tr { border-top: 1px solid var(--border); }
+    tbody th a { font-weight: 650; }
+    .price { white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .shortlist { display: flex; flex-wrap: wrap; align-items: center; gap: .65rem 1rem; padding-block: 1rem; }
+    .shortlist p { flex: 1 1 17rem; margin: 0; }
+    .checks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.25rem 0 0; padding: 0; list-style: none; }
+    .checks li { padding: 1rem; border: 1px solid var(--border); border-radius: .85rem; background: var(--white); }
+    .checks strong { display: block; margin-bottom: .25rem; }
+    details { border-top: 1px solid var(--border); padding-block: .9rem; }
+    details p { margin-bottom: 0; max-width: 65ch; }
+    summary { font-weight: 700; cursor: pointer; }
+    footer { padding-block: 1.2rem 2rem; border-top: 1px solid var(--border); color: var(--muted); }
+    [hidden] { display: none !important; }
+    @media (max-width: 40rem) {
+      .checks { grid-template-columns: 1fr; }
+      .topbar { align-items: flex-start; }
+      .topbar nav { font-size: .9rem; }
+    }
+  </style>
+<link rel="canonical" href="https://kakobuyfinds.github.io/sjbmf/">
+</head>
+<body>
+  <header class="wrap topbar">
+    <strong>PIKOBUY GUIDE</strong>
+    <nav aria-label="Page sections">
+      <a href="#catalog">Catalog</a>
+      <a href="#checks">Buying checks</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </header>
+  <main class="wrap">
+    <div class="hero">
+      <h1>PikoBuy spreadsheet</h1>
+      <p>Compare shoes and clothing from CAFANS, save your picks, and check sizing, listing compatibility, and shipping before you order.</p>
+      <div class="actions">
+        <a class="button primary" href="https://cafans.com">PikoBuy spreadsheet</a>
+        <a class="button secondary" href="https://cafans.com">Buy it now</a>
+      </div>
+    </div>
+
+    <section id="catalog" aria-labelledby="catalog-title">
+      <h2 id="catalog-title">CAFANS product directory</h2>
+      <p class="note" id="price-note">These six listings come from CAFANS. The USD prices are published estimates for the items only. Open the listing to confirm current pricing and available options.</p>
+      <div class="filters" id="filters" hidden>
+        <label class="search">Search products
+          <input id="query" type="search" placeholder="Try slides or sweatshirt">
+        </label>
+        <label>Category
+          <select id="category">
+            <option value="">All categories</option>
+            <option>Shoes</option>
+            <option>Sweatshirts</option>
+            <option>T-shirts</option>
+            <option>Jackets</option>
+          </select>
+        </label>
+      </div>
+      <p class="note" id="result-count" role="status" hidden></p>
+      <div class="table-wrap" role="region" aria-labelledby="catalog-title" tabindex="0">
+        <table aria-describedby="price-note">
+          <thead>
+            <tr>
+              <th scope="col">CAFANS listing</th>
+              <th scope="col">Category</th>
+              <th scope="col">Est. USD</th>
+              <th scope="col" id="save-heading" hidden>Shortlist</th>
+            </tr>
+          </thead>
+          <tbody id="products">
+            <tr data-id="158791" data-cents="6236"><th scope="row"><a href="https://cafans.com/goods-158791.html">Leather Slides</a></th><td>Shoes</td><td class="price">$62.36</td></tr>
+            <tr data-id="158790" data-cents="4667"><th scope="row"><a href="https://cafans.com/goods-158790.html">Platform Slides</a></th><td>Shoes</td><td class="price">$46.67</td></tr>
+            <tr data-id="158792" data-cents="2750"><th scope="row"><a href="https://cafans.com/goods-158792.html">Sweatshirt</a></th><td>Sweatshirts</td><td class="price">$27.50</td></tr>
+            <tr data-id="158200" data-cents="3264"><th scope="row"><a href="https://cafans.com/goods-158200.html">Unisex Embroidered Oversized T-Shirt</a></th><td>T-shirts</td><td class="price">$32.64</td></tr>
+            <tr data-id="158222" data-cents="8454"><th scope="row"><a href="https://cafans.com/goods-158222.html">Jacket</a></th><td>Jackets</td><td class="price">$84.54</td></tr>
+            <tr data-id="158158" data-cents="2750"><th scope="row"><a href="https://cafans.com/goods-158158.html">Jacket - 0608260</a></th><td>Jackets</td><td class="price">$27.50</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="shortlist" id="shortlist" hidden>
+        <p id="shortlist-total" role="status"></p>
+        <button class="button control" id="saved-only" type="button" aria-pressed="false">Saved only</button>
+        <button class="button control" id="download" type="button" disabled>Download CSV</button>
+      </div>
+    </section>
+
+    <section id="checks" aria-labelledby="checks-title">
+      <h2 id="checks-title">Before you order through PikoBuy</h2>
+      <ol class="checks">
+        <li><strong>Check the source link</strong>Open the CAFANS listing and look for the original seller URL. Test that URL in PikoBuy and confirm that the agent shows the same item, size, and color.</li>
+        <li><strong>Save measurements and photo checks</strong>Record the seller's size chart. If inspection photos are available, compare the chosen variant, labels, and measured dimensions with your order.</li>
+        <li><strong>Compare the full cost</strong>Record the item price, domestic delivery, agent fees, and the international shipping quote. Ask how the shipping line calculates billable weight before comparing quotes.</li>
+      </ol>
+    </section>
+
+    <section id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">Frequently asked questions</h2>
+      <details>
+        <summary>What is this PikoBuy spreadsheet?</summary>
+        <p>It is an independent shortlist of CAFANS product listings. Use it to compare items and keep track of the original CAFANS pages while planning a purchase through your preferred shopping agent.</p>
+      </details>
+      <details>
+        <summary>Can I order every listing through PikoBuy?</summary>
+        <p>Availability depends on whether PikoBuy accepts the original seller link and whether the seller still offers your variant. Verify both before placing an order.</p>
+      </details>
+      <details>
+        <summary>What does the CSV include?</summary>
+        <p>The CSV includes the titles, categories, estimated USD item prices, and CAFANS URLs for the products you saved. You can add size, color, and shipping quotes in your spreadsheet app.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="wrap">Independent buying guide. Product listings are provided by <a href="https://cafans.com">CAFANS</a>.</footer>
+
+  <script>
+    (() => {
+      const rows = Array.from(document.querySelectorAll('#products tr'));
+      const query = document.getElementById('query');
+      const category = document.getElementById('category');
+      const resultCount = document.getElementById('result-count');
+      const shortlistTotal = document.getElementById('shortlist-total');
+      const savedOnly = document.getElementById('saved-only');
+      const download = document.getElementById('download');
+      const storageKey = 'pikobuy-cafans-shortlist-v1';
+      const saved = new Set();
+      const money = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
+
+      try {
+        const previous = JSON.parse(localStorage.getItem(storageKey) || '[]');
+        if (Array.isArray(previous)) {
+          rows.forEach(row => {
+            if (previous.includes(row.dataset.id)) saved.add(row.dataset.id);
+          });
+        }
+      } catch {
+        // Filtering and exporting work even if browser storage is unavailable.
+      }
+
+      function refresh() {
+        const term = query.value.trim().toLowerCase();
+        const showSaved = savedOnly.getAttribute('aria-pressed') === 'true';
+        let visible = 0;
+        let totalCents = 0;
+
+        rows.forEach(row => {
+          const isSaved = saved.has(row.dataset.id);
+          const title = row.cells[0].textContent;
+          const group = row.cells[1].textContent;
+          const matchesText = `${title} ${group}`.toLowerCase().includes(term);
+          row.hidden = !matchesText || (category.value !== '' && group !== category.value) || (showSaved && !isSaved);
+          if (!row.hidden) visible += 1;
+          if (isSaved) totalCents += Number(row.dataset.cents);
+          row.querySelector('button').setAttribute('aria-pressed', String(isSaved));
+        });
+
+        resultCount.textContent = visible ? `${visible} of ${rows.length} listings` : 'No listings match these filters.';
+        shortlistTotal.textContent = `${saved.size} saved · ${money.format(totalCents / 100)} estimated item subtotal`;
+        download.disabled = saved.size === 0;
+      }
+
+      rows.forEach(row => {
+        const button = document.createElement('button');
+        button.className = 'button control';
+        button.type = 'button';
+        button.textContent = 'Save';
+        button.setAttribute('aria-label', `Save ${row.cells[0].textContent} to shortlist`);
+        row.insertCell().append(button);
+
+        button.addEventListener('click', () => {
+          const id = row.dataset.id;
+          if (saved.has(id)) saved.delete(id);
+          else saved.add(id);
+          try {
+            localStorage.setItem(storageKey, JSON.stringify([...saved]));
+          } catch {
+            // The shortlist remains available for the current page visit.
+          }
+          refresh();
+          if (row.hidden) savedOnly.focus();
+        });
+      });
+
+      query.addEventListener('input', refresh);
+      category.addEventListener('change', refresh);
+      savedOnly.addEventListener('click', () => {
+        savedOnly.setAttribute('aria-pressed', String(savedOnly.getAttribute('aria-pressed') !== 'true'));
+        refresh();
+      });
+
+      download.addEventListener('click', () => {
+        const csv = [['Product', 'Category', 'Estimated USD', 'CAFANS URL']];
+        rows.filter(row => saved.has(row.dataset.id)).forEach(row => {
+          const link = row.querySelector('a');
+          csv.push([link.textContent, row.cells[1].textContent, (Number(row.dataset.cents) / 100).toFixed(2), link.href]);
+        });
+        const content = csv.map(record => record.map(field => `"${field.replace(/"/g, '""')}"`).join(',')).join('\r\n');
+        const url = URL.createObjectURL(new Blob(['\uFEFF', content], { type: 'text/csv;charset=utf-8' }));
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'pikobuy-shortlist.csv';
+        document.body.append(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      });
+
+      ['filters', 'result-count', 'save-heading', 'shortlist'].forEach(id => {
+        document.getElementById(id).hidden = false;
+      });
+      refresh();
+    })();
+  </script>
+</body>
+</html>
